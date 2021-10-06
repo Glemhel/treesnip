@@ -167,7 +167,7 @@ add_boost_tree_catboost <- function() {
     eng = "catboost",
     parsnip = "mtry",
     original = "rsm",
-    func = list(pkg = "dials", fun = "mtry"),
+    func = list(pkg = "dials", fun = "mtry_prop"),
     has_submodel = FALSE
   )
   parsnip::set_model_arg(
@@ -248,7 +248,7 @@ train_catboost <- function(x, y, depth = 6, iterations = 1000, learning_rate = N
   learning_rate <- max(learning_rate, 1e-6)
 
   # rsm ------------------------------
-  # why to divide on number of columns in dataset?
+  # no division by number of features
 #   if(!is.null(rsm)) {
 #     rsm <- rsm/ncol(x)
 #   }
