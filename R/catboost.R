@@ -248,9 +248,10 @@ train_catboost <- function(x, y, depth = 6, iterations = 1000, learning_rate = N
   learning_rate <- max(learning_rate, 1e-6)
 
   # rsm ------------------------------
-  if(!is.null(rsm)) {
-    rsm <- rsm/ncol(x)
-  }
+  # why to divide on number of columns in dataset?
+#   if(!is.null(rsm)) {
+#     rsm <- rsm/ncol(x)
+#   }
   if(rsm > 1) {
     rsm <- 1
   }
