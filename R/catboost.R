@@ -210,7 +210,7 @@ prepare_df_catboost <- function(x, y = NULL, categorical_cols= NULL) {
     return(x)
 
   if (is.factor(y))
-    y <- as.integer(levels(y))
+    y <- as.numeric(y)
   catboost::catboost.load_pool(
     data = x,
     label = y,
