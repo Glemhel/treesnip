@@ -209,6 +209,8 @@ prepare_df_catboost <- function(x, y = NULL, categorical_cols= NULL) {
   if (is.null(y))
     return(x)
 
+  if (is.factor(y))
+    y <- as.integer(levels(y))
   catboost::catboost.load_pool(
     data = x,
     label = y,
